@@ -13,7 +13,27 @@ const PORT = process.env.PORT || 3001;
 
 ///////////////////////////////////////// imports //////////////////////////////
 
+const getAllDrinksHandler = require("./modules/getAllDrinksHandler");
+const addFavHandler = require("./modules/addFavHandler");
+const getFavHandler = require("./modules/getFavHandler");
+const deleteFavHandler = require("./modules/deleteFavHandler");
+const updateFavHandler = require("./modules/updateFavHandler");
 ///////////////////////////////////////// routes//////////////////////////////
+
+//localhost:3001/updateFav
+server.put("/updateFav", updateFavHandler);
+
+//localhost:3001/deleteFav
+server.delete("/deleteFav/:name", deleteFavHandler);
+
+//localhost:3001/getFav
+server.get("/getFav", getFavHandler);
+
+//localhost:3001/addFav
+server.post("/addFav", addFavHandler);
+
+//localhost:3001/getAllDrinks
+server.get("/getAllDrinks", getAllDrinksHandler);
 
 //localhost:3001/
 server.get("/", (req, res) => {
